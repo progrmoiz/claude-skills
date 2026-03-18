@@ -4,40 +4,41 @@ Open-source skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-c
 
 ## Skills
 
-### `/time-saved` — Pre-AI vs AI Time Estimates
+### `/estimate` — AI-Era Time Estimates
 
-Shows how long your work would have taken without AI. The satisfying "2 weeks → 30 minutes" moment.
+Estimate how long a task will actually take — with AI in the picture. No more pre-AI guesswork.
 
-After completing any task, run `/time-saved` and get:
+```
+/estimate build a Stripe webhook handler with retry logic
+```
 
 ```
 ┌─────────────────────────────────────────┐
-│ ⏱️  TIME SAVED                          │
+│ 📐 ESTIMATE                             │
 ├─────────────────────────────────────────┤
 │                                         │
-│  What:  Help center article editor      │
-│  Scope: 8 files, +412/-23              │
+│  Task: Stripe webhook with retry        │
 │                                         │
-│  Pre-AI estimate:  3–5 days             │
-│  With AI:          40 minutes           │
-│  Time saved:       ~8x faster           │
+│  Estimate:  1.5–3 hours                 │
 │                                         │
 ├─────────────────────────────────────────┤
 │ Breakdown                               │
 │                                         │
-│  Coding:        12h → 20m               │
-│  Research:       4h → 5m                │
-│  Testing:        3h → 10m               │
-│  Debugging:      2h → 5m                │
+│  1. Webhook endpoint + validation ~20m  │
+│  2. Retry logic + queue          ~30m   │
+│  3. Event deduplication store    ~20m   │
+│  4. Error handling + logging     ~15m   │
+│  5. Review & test                ~30m   │
 │                                         │
 │ Assumptions                             │
-│  • Senior dev familiar with the stack   │
-│  • Includes prompt/review time for AI   │
+│  • Existing Stripe setup                │
+│  • PostgreSQL for dedup store           │
+│  • Third-party API multiplier applied   │
 │                                         │
 └─────────────────────────────────────────┘
 ```
 
-Uses a calibrated estimation framework — doesn't inflate pre-AI numbers for drama.
+Calibrated with real research data — Anthropic's 100K conversation study, METR's RCT, BSWEN's 3-month case study, and developer build times from X. Not vibes.
 
 #### Install
 
@@ -45,13 +46,13 @@ Copy the skill folder to your project:
 
 ```bash
 # Project-level (this project only)
-cp -r skills/time-saved .claude/skills/time-saved
+cp -r skills/estimate .claude/skills/estimate
 
 # Or user-level (available everywhere)
-cp -r skills/time-saved ~/.claude/skills/time-saved
+cp -r skills/estimate ~/.claude/skills/estimate
 ```
 
-Then run `/time-saved` in Claude Code after shipping something.
+Then run `/estimate [task]` before starting any work.
 
 ## Adding More Skills
 
