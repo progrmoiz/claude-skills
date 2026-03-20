@@ -2,7 +2,7 @@
 
 A collection of skills for AI coding agents. Skills are packaged instructions and scripts that extend agent capabilities.
 
-Skills follow the [Agent Skills format](https://github.com/anthropics/claude-code/blob/main/docs/skills.md).
+Skills follow the [Agent Skills format](https://agentskills.io/).
 
 ## Available Skills
 
