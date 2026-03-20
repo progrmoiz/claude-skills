@@ -1,62 +1,52 @@
-# Claude Code Skills
+# Agent Skills
 
-Open-source skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
+A collection of skills for AI coding agents. Skills are packaged instructions and scripts that extend agent capabilities.
 
-## Skills
+Skills follow the [Agent Skills format](https://github.com/anthropics/claude-code/blob/main/docs/skills.md).
 
-### `/estimate` — AI-Era Time Estimates
+## Available Skills
 
-Estimate how long a task will actually take — with AI in the picture. No more pre-AI guesswork.
+### estimate
+
+AI-era time estimates — how long tasks actually take with AI assistance. Calibrated with real research data from Anthropic's 100K conversation study, METR's RCT, and BSWEN's 3-month case study.
+
+**Use when:**
+- Scoping a task before starting work
+- Giving time estimates to stakeholders
+- Comparing pre-AI vs post-AI effort
+
+**Features:**
+- Breakdown by subtask with individual estimates
+- Assumptions listed explicitly
+- Third-party API and complexity multipliers
+- Research-backed calibration data
+
+## Installation
+
+```
+npx skills add progrmoiz/agent-skills
+```
+
+## Usage
+
+Skills are automatically available once installed. The agent will use them when relevant tasks are detected.
+
+**Examples:**
 
 ```
 /estimate build a Stripe webhook handler with retry logic
 ```
 
 ```
-┌─────────────────────────────────────────┐
-│ 📐 ESTIMATE                             │
-├─────────────────────────────────────────┤
-│                                         │
-│  Task: Stripe webhook with retry        │
-│                                         │
-│  Estimate:  1.5–3 hours                 │
-│                                         │
-├─────────────────────────────────────────┤
-│ Breakdown                               │
-│                                         │
-│  1. Webhook endpoint + validation ~20m  │
-│  2. Retry logic + queue          ~30m   │
-│  3. Event deduplication store    ~20m   │
-│  4. Error handling + logging     ~15m   │
-│  5. Review & test                ~30m   │
-│                                         │
-│ Assumptions                             │
-│  • Existing Stripe setup                │
-│  • PostgreSQL for dedup store           │
-│  • Third-party API multiplier applied   │
-│                                         │
-└─────────────────────────────────────────┘
+/estimate migrate the auth system from JWT to session tokens
 ```
 
-Calibrated with real research data — Anthropic's 100K conversation study, METR's RCT, BSWEN's 3-month case study, and developer build times from X. Not vibes.
+## Skill Structure
 
-#### Install
-
-Copy the skill folder to your project:
-
-```bash
-# Project-level (this project only)
-cp -r skills/estimate .claude/skills/estimate
-
-# Or user-level (available everywhere)
-cp -r skills/estimate ~/.claude/skills/estimate
-```
-
-Then run `/estimate [task]` before starting any work.
-
-## Adding More Skills
-
-More skills coming. Watch/star for updates.
+Each skill contains:
+- `SKILL.md` - Instructions for the agent
+- `scripts/` - Helper scripts for automation (optional)
+- `references/` - Supporting documentation (optional)
 
 ## License
 
