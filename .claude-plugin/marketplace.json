@@ -1,0 +1,20 @@
+{
+  "name": "progrmoiz-skills",
+  "owner": {
+    "name": "Abdul Moiz",
+    "url": "https://github.com/progrmoiz"
+  },
+  "metadata": {
+    "description": "Production skills for Claude Code that output artifacts, not advice.",
+    "version": "1.0.0",
+    "repository": "https://github.com/progrmoiz/skills"
+  },
+  "plugins": [
+    {
+      "name": "progrmoiz-skills",
+      "description": "Skills that produce real outputs — social simulations, TypeScript CLIs, calibrated estimates.",
+      "source": "./skills/",
+      "strict": false
+    }
+  ]
+}
